@@ -272,7 +272,7 @@ class DecisionTree:
         return np.array(predicted)
 
 #6
-df = pd.read_csv('students.csv').drop(columns=['Unnamed: 0'])
+df = pd.read_csv('data/students.csv').drop(columns=['Unnamed: 0'])
 X = df[['STG', 'SCG', 'STR', 'LPR', 'PEG']].values
 y = df['UNS'].values
 df.head()
@@ -307,7 +307,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
 #9
-df = pd.read_csv('agaricus-lepiota.data', header=None)
+df = pd.read_csv('data/agaricus-lepiota.data', header=None)
 df.head()
 
 #9
@@ -332,7 +332,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 
 #10
-data = pd.read_csv('diabetes.csv')
+data = pd.read_csv('data/diabetes.csv')
 print(f"Dataset shape: {data.shape}")
 data.head()
 
