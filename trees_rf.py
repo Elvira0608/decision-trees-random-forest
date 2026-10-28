@@ -414,7 +414,7 @@ for i in rf_max_depths:
 print(f"Гиперпараметры: max_depth = {best_par_rf['max_depth']}, min_samples_split = {best_par_rf['min_samples_split']}")
 print(best_f1_rf)
 
-rf_best = RandomForestClassifier(n_estimators=50, max_depth=8, min_samples_split=5, random_state=42, n_jobs=4)
+rf_best = RandomForestClassifier(n_estimators=50, max_depth=best_par_rf['max_depth'], min_samples_split=best_par_rf['min_samples_split'], random_state=42, n_jobs=4)
 rf_best.fit(X_train_0, y_train_0)
 pred_rf = rf_best.predict(X_test)
 prob_rf = rf_best.predict_proba(X_test)[:, 1]
@@ -426,7 +426,7 @@ print('AUC-ROC:', roc_auc_score(y_test, prob_rf))
 n = [i for i in range(1, 100, 3)]
 auc = []
 for i in n:
-  rf_best = RandomForestClassifier(n_estimators=i, max_depth=8, min_samples_split=5, random_state=42, n_jobs=4)
+  rf_best = RandomForestClassifier(n_estimators=i, max_depth=best_par_rf['max_depth'], min_samples_split=best_par_rf['min_samples_split'], random_state=42, n_jobs=4)
   rf_best.fit(X_train_0, y_train_0)
   prob = rf_best.predict_proba(X_test)[:, 1]
   auc.append(roc_auc_score(y_test, prob))
