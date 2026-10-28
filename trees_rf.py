@@ -130,6 +130,7 @@ plt.plot(thresholds, ginis)
 plt.xlabel('Порог')
 plt.ylabel('Критерий информативности')
 plt.grid()
+plt.show()
 
 #4
 best_gini = -100000000000
@@ -283,6 +284,8 @@ for feature, ax in zip(features, axes):
     best_feature = feature
   i += 1
 print('Лучший признак для разбиения:', best_feature)
+plt.tight_layout()
+plt.show()
 
 #8
 fig, axes = plt.subplots(5, 1, figsize=(10, 20))
@@ -292,6 +295,8 @@ for feature, ax in zip(features, axes):
   ax.set_xlabel('Значение признака')
   ax.set_ylabel('Класс')
   i += 1
+plt.tight_layout()
+plt.show()
 
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
@@ -366,6 +371,8 @@ plt.xticks(range(len(min_leaves)), min_leaves)
 plt.yticks(range(len(max_depths)), max_depths)
 plt.xlabel('min_samples_leaf')
 plt.ylabel('max_depth')
+plt.tight_layout()
+plt.show()
 
 dt_f = DecisionTreeClassifier(max_depth=best_par['max_depth'], min_samples_leaf=best_par['min_samples_leaf'], random_state=42)
 dt_f.fit(X_train_0, y_train_0)
@@ -428,3 +435,4 @@ plt.plot(n, auc)
 plt.xlabel('Кол-во деревьев')
 plt.ylabel('AUC-ROC на тесте')
 plt.grid()
+plt.show()
